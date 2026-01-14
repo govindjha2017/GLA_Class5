@@ -12,7 +12,6 @@ app.get('/about',(req,res)=>{
 app.get('/cat',(req,res)=>{
     res.send('Meowwww 1!')
 })
-
 app.get('/cat',(req,res)=>{
     res.send('Meowwww 2!')
 })
