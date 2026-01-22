@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="/user/new">Create new user</a>
+    <div class="container">
+       <% for(let user of users){ %>
+           <div class="card">
+                <h3>Name: <%= user.name %></h3>
+                <P>Age: <%= user.age %></P>
+                <P>City: <%= user.city %></P>
+                <a href="/users/<%=user.id%>">Show</a>
+           </div>
+       <% } %>
+    </div>
+</body>
+</html>
