@@ -1,0 +1,39 @@
+govind@DESKTOP-EBM1M22:~$ pwd
+/home/govind
+govind@DESKTOP-EBM1M22:~$ ls
+abc.txt  file.txt  qwer
+govind@DESKTOP-EBM1M22:~$ rm abc.txt
+govind@DESKTOP-EBM1M22:~$ ls
+file.txt  qwer
+govind@DESKTOP-EBM1M22:~$ rm file.txt
+govind@DESKTOP-EBM1M22:~$ rm qwer
+govind@DESKTOP-EBM1M22:~$ ls
+govind@DESKTOP-EBM1M22:~$ mkdir newfolder
+govind@DESKTOP-EBM1M22:~$ ls
+newfolder
+govind@DESKTOP-EBM1M22:~$ tocuh file.txt
+Command 'tocuh' not found, did you mean:
+  command 'touch' from deb coreutils (9.4-2ubuntu2)
+Try: sudo apt install <deb name>
+govind@DESKTOP-EBM1M22:~$ touch file.txt
+govind@DESKTOP-EBM1M22:~$ ls
+file.txt  newfolder
+govind@DESKTOP-EBM1M22:~$ rmdir newfolder
+govind@DESKTOP-EBM1M22:~$ ls
+file.txt
+govind@DESKTOP-EBM1M22:~$ cat file.txt
+govind@DESKTOP-EBM1M22:~$ echo "Hello Ji i am govind jha" >> file.txt
+govind@DESKTOP-EBM1M22:~$ cat file.txt
+Hello Ji i am govind jha
+govind@DESKTOP-EBM1M22:~$ echo "second line" >> file.txt
+govind@DESKTOP-EBM1M22:~$ cat file.txt
+Hello Ji i am govind jha
+second line
+govind@DESKTOP-EBM1M22:~$ less file.txt
+govind@DESKTOP-EBM1M22:~$ man file.txt
+No manual entry for file.txt
+govind@DESKTOP-EBM1M22:~$ grep "i am " >>file.txt
+^C
+govind@DESKTOP-EBM1M22:~$ grep "i am " file.txt
+Hello Ji i am govind jha
+govind@DESKTOP-EBM1M22:~

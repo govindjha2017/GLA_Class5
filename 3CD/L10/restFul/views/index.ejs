@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="/user/new">Add new user</a>
+    <div class="container">
+       <% for(let user of users){ %>
+            <div class="card">
+                <h2>Name: <%= user.name %></h2>
+                <p>Age: <%= user.age %></p>
+                <p>City: <%= user.city %></p>
+                <a href="/users/<%= user.id %>">Show</a>
+                <a href="/users/<%= user.id %>/edit">Edit</a>
+                <form action="/delete/<%=user.id%>" method="post">
+                    <button>Delete</button>
+                </form>
+            </div>
+       <% } %>
+    </div>
+</body>
+</html>
