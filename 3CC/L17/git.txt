@@ -1,0 +1,329 @@
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (qwer)
+$ git branch
+  abc
+  master
+* qwer
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (qwer)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ ^C
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git restore --staged temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+diff --git a/temp.js b/temp.js
+index 143539a..3e967f4 100644
+--- a/temp.js
++++ b/temp.js
+@@ -1 +1,2 @@
+-let x = "temp"
+\ No newline at end of file
++let x = "temp"
++console.log(x);
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff --staged
+diff --git a/temp.js b/temp.js
+index 143539a..3e967f4 100644
+--- a/temp.js
++++ b/temp.js
+@@ -1 +1,2 @@
+-let x = "temp"
+\ No newline at end of file
++let x = "temp"
++console.log(x);
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"\
+> ^C
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master ec61a67] temp
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git dif --staged
+git: 'dif' is not a git command. See 'git --help'.
+
+The most similar commands are
+        diff
+        config
+        difftool
+        init
+        refs
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff --staged
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+ec61a67 (HEAD -> master) temp
+85ed1ed f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff ec61a67 85ed1ed
+diff --git a/temp.js b/temp.js
+index 3e967f4..143539a 100644
+--- a/temp.js
++++ b/temp.js
+@@ -1,2 +1 @@
+-let x = "temp"
+-console.log(x);
+\ No newline at end of file
++let x = "temp"
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff ec61a67..85ed1ed
+diff --git a/temp.js b/temp.js
+index 3e967f4..143539a 100644
+--- a/temp.js
++++ b/temp.js
+@@ -1,2 +1 @@
+-let x = "temp"
+-console.log(x);
+\ No newline at end of file
++let x = "temp"
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff master abc
+diff --git a/abc.js b/abc.js
+new file mode 100644
+index 0000000..ccfd98f
+--- /dev/null
++++ b/abc.js
+@@ -0,0 +1,3 @@
++let x = "abc";
++console.log(x);
++let y ="something"
+\ No newline at end of file
+diff --git a/qwer.txt b/qwer.txt
+deleted file mode 100644
+index bc1a289..0000000
+--- a/qwer.txt
++++ /dev/null
+@@ -1,3 +0,0 @@
+-dfkjbnkjdsfkj
+-
+-sdhbkj
+\ No newline at end of file
+diff --git a/temp.js b/temp.js
+index 3e967f4..143539a 100644
+--- a/temp.js
++++ b/temp.js
+@@ -1,2 +1 @@
+-let x = "temp"
+-console.log(x);
+\ No newline at end of file
++let x = "temp"
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+ec61a67 (HEAD -> master) temp
+85ed1ed f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset --soft head~1
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+85ed1ed (HEAD -> master) f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master a3efe5e] temp
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+a3efe5e (HEAD -> master) temp
+85ed1ed f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset head~1
+Unstaged changes after reset:
+M       temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+85ed1ed (HEAD -> master) f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master 56b9c06] temp
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset --hard head~1
+HEAD is now at 85ed1ed f
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+85ed1ed (HEAD -> master) f
+bee3cc8 e
+2304b66 d
+25d2252 c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset soft head~3
+fatal: ambiguous argument 'soft': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset --soft head~3
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+25d2252 (HEAD -> master) c
+bd6cf2d b
+bd4616f a
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   abc.txt
+        new file:   qwer.txt
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$

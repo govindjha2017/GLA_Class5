@@ -1,0 +1,642 @@
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject
+$ git init
+Initialized empty Git repository in C:/Users/Pc/Desktop/newProject/.git/
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.js
+        new file:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "first commit"
+[master (root-commit) 9e3d961] first commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 index.js
+ create mode 100644 temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log
+commit 9e3d961879c34ebd6f91d92bbe0d509ff4f1a51a (HEAD -> master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:00:18 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git remote add origin https://github.com/govindjha2017/temp3
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git remote -v
+origin  https://github.com/govindjha2017/temp3 (fetch)
+origin  https://github.com/govindjha2017/temp3 (push)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 276 bytes | 138.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/govindjha2017/temp3
+ * [new branch]      master -> master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "second commit"
+[master 490b20a] second commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 303 bytes | 151.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/govindjha2017/temp3
+   9e3d961..490b20a  master -> master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log
+commit 490b20a253df1831f51031d68df6665a0164d254 (HEAD -> master, origin/master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:07:57 2026 +0530
+
+    second commit
+
+commit 9e3d961879c34ebd6f91d92bbe0d509ff4f1a51a
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:00:18 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+490b20a (HEAD -> master, origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch issue-fix
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git commit -m "issue-1 fix"
+[issue-fix 2fcc9d4] issue-1 fix
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+490b20a (HEAD -> master, origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+2fcc9d4 (HEAD -> issue-fix) issue-1 fix
+490b20a (origin/master, master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git merge issue-fix
+Updating 490b20a..2fcc9d4
+Fast-forward
+ temp.js | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2fcc9d4 (HEAD -> master, issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout -b abc
+Switched to a new branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+2fcc9d4 (HEAD -> abc, master, issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git commit -m "abc file added!"
+[abc 2d52d35] abc file added!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2fcc9d4 (HEAD -> master, issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+2d52d35 (HEAD -> abc) abc file added!
+2fcc9d4 (master, issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        abc.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merge made by the 'ort' strategy.
+ abc.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+e3d8f2a (HEAD -> abc) Merge branch 'master' into abc
+4584b4c (master) text file addded!
+2d52d35 abc file added!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log
+commit 4584b4c1adc3e87bf16ea978099e60720573e260 (HEAD -> master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:19:49 2026 +0530
+
+    text file addded!
+
+commit 2fcc9d46f7e92a973f5f6d51b61fba5d5cc53285 (issue-fix)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:13:37 2026 +0530
+
+    issue-1 fix
+
+commit 490b20a253df1831f51031d68df6665a0164d254 (origin/master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:07:57 2026 +0530
+
+    second commit
+
+commit 9e3d961879c34ebd6f91d92bbe0d509ff4f1a51a
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 09:00:18 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+4584b4c (HEAD -> master) text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+4584b4c (HEAD -> master) text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout -b dev
+Switched to a new branch 'dev'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git commit -m "dev.js file added"
+[dev 277baa2] dev.js file added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dev.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git log --online
+fatal: unrecognized argument: --online
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git log --oneline
+277baa2 (HEAD -> dev) dev.js file added
+4584b4c (master) text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+4584b4c (HEAD -> master) text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "dev.txt file added!"
+[master f3b654e] dev.txt file added!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dev.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+f3b654e (HEAD -> master) dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch dev
+Switched to branch 'dev'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git log --oneline
+277baa2 (HEAD -> dev) dev.js file added
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git rebase master
+Successfully rebased and updated refs/heads/dev.
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git log --oneline
+45edbc8 (HEAD -> dev) dev.js file added
+f3b654e (master) dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (dev)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+f3b654e (HEAD -> master) dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+diff --git a/index.js b/index.js
+index 9a7cf63..49d8bd6 100644
+--- a/index.js
++++ b/index.js
+@@ -1 +1,2 @@
+-let x= 20;
+\ No newline at end of file
++let x= 20;
++console.log(x);
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff --staged
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff --staged
+diff --git a/index.js b/index.js
+index 9a7cf63..49d8bd6 100644
+--- a/index.js
++++ b/index.js
+@@ -1 +1,2 @@
+-let x= 20;
+\ No newline at end of file
++let x= 20;
++console.log(x);
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "test"
+[master 1f485d4] test
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff --staged
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1f485d4 (HEAD -> master) test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff 1f485d4 f3b654e
+diff --git a/index.js b/index.js
+index 49d8bd6..9a7cf63 100644
+--- a/index.js
++++ b/index.js
+@@ -1,2 +1 @@
+-let x= 20;
+-console.log(x);
+\ No newline at end of file
++let x= 20;
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git diff master dev
+diff --git a/dev.js b/dev.js
+new file mode 100644
+index 0000000..958837f
+--- /dev/null
++++ b/dev.js
+@@ -0,0 +1 @@
++let p ="dev";
+\ No newline at end of file
+diff --git a/index.js b/index.js
+index 49d8bd6..9a7cf63 100644
+--- a/index.js
++++ b/index.js
+@@ -1,2 +1 @@
+-let x= 20;
+-console.log(x);
+\ No newline at end of file
++let x= 20;
+\ No newline at end of file
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1f485d4 (HEAD -> master) test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master ec33318] temp
+ 1 file changed, 1 insertion(+)
+ create mode 100644 temp.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+ec33318 (HEAD -> master) temp
+1f485d4 test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset --soft head~1
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1f485d4 (HEAD -> master) test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   temp.txt
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "test"
+[master 62f9202] test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 temp.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+62f9202 (HEAD -> master) test
+1f485d4 test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset head~1
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1f485d4 (HEAD -> master) test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        temp.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master f627d4e] temp
+ 1 file changed, 1 insertion(+)
+ create mode 100644 temp.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset --hard head~1
+HEAD is now at 1f485d4 test
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1f485d4 (HEAD -> master) test
+f3b654e dev.txt file added!
+4584b4c text file addded!
+2fcc9d4 (issue-fix) issue-1 fix
+490b20a (origin/master) second commit
+9e3d961 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$

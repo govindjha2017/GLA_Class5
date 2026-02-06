@@ -1,0 +1,356 @@
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject
+$ git init
+Initialized empty Git repository in C:/Users/Pc/Desktop/newProject/.git/
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "first commit"
+[master (root-commit) 506b5d7] first commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 index.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   index.js
+        new file:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "second commit"
+[master 480a79d] second commit
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log
+commit 480a79dee0cb1c551bddeec6cc62d20bcb367f44 (HEAD -> master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 14:39:31 2026 +0530
+
+    second commit
+
+commit 506b5d707c78a878260783eb9fbb38bf2a4e0b78
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 14:36:49 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git remote add origin https://github.com/govindjha2017/temp4
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git remote -v
+origin  https://github.com/govindjha2017/temp4 (fetch)
+origin  https://github.com/govindjha2017/temp4 (push)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git push origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 536 bytes | 536.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/govindjha2017/temp4
+ * [new branch]      master -> master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "3rd commit"
+[master 918d6d7] 3rd commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 297 bytes | 297.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/govindjha2017/temp4
+   480a79d..918d6d7  master -> master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch
+* master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git btranch issue-fix
+git: 'btranch' is not a git command. See 'git --help'.
+
+The most similar command is
+        branch
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch issue-fix
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git status
+On branch issue-fix
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git commit -m "issue-1 fix"
+[issue-fix e7d6758] issue-1 fix
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log
+commit e7d6758b5380437242444fd115d161dc2149cbf2 (HEAD -> issue-fix)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 15:02:27 2026 +0530
+
+    issue-1 fix
+
+commit 918d6d76243fdbd8e456ec97eb576b1b19f940fe (origin/master, master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 14:44:49 2026 +0530
+
+    3rd commit
+
+commit 480a79dee0cb1c551bddeec6cc62d20bcb367f44
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 14:39:31 2026 +0530
+
+    second commit
+
+commit 506b5d707c78a878260783eb9fbb38bf2a4e0b78
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 14:36:49 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ it log --oneline
+bash: it: command not found
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+e7d6758 (HEAD -> issue-fix) issue-1 fix
+918d6d7 (origin/master, master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+918d6d7 (HEAD -> master, origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch
+  issue-fix
+* master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git merge issue-fix
+Updating 918d6d7..e7d6758
+Fast-forward
+ temp.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+e7d6758 (HEAD -> master, issue-fix) issue-1 fix
+918d6d7 (origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch -m "main"
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (main)
+$ git log --oneline
+e7d6758 (HEAD -> main, issue-fix) issue-1 fix
+918d6d7 (origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (main)
+$ git branch
+  issue-fix
+* main
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (main)
+$ git branch -m "master"
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout -b abc
+Switched to a new branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git commit -m "first commit in abc"
+[abc 0aa10a8] first commit in abc
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+0aa10a8 (HEAD -> abc) first commit in abc
+e7d6758 (master, issue-fix) issue-1 fix
+918d6d7 (origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master 4a07528] temp
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+4a07528 (HEAD -> master) temp
+e7d6758 (issue-fix) issue-1 fix
+918d6d7 (origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+0aa10a8 (HEAD -> abc) first commit in abc
+e7d6758 (issue-fix) issue-1 fix
+918d6d7 (origin/master) 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git merge abc
+Auto-merging index.js
+CONFLICT (content): Merge conflict in index.js
+Automatic merge failed; fix conflicts and then commit the result.
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master|MERGING)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master|MERGING)
+$ git commit -m "merge conflict solved"
+[master 1fd2b2b] merge conflict solved
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git push origin master
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.17 KiB | 398.00 KiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/govindjha2017/temp4
+   918d6d7..1fd2b2b  master -> master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$

@@ -1,0 +1,259 @@
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject
+$ git init
+Initialized empty Git repository in C:/Users/Pc/Desktop/newProject/.git/
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "first commit"
+[master (root-commit) f3291c7] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log
+commit f3291c7d67a98e61208dd3080a9ae57bb66c7573 (HEAD -> master)
+Author: govind <govindkumarjha2017@gmail.com>
+Date:   Thu Feb 5 11:26:30 2026 +0530
+
+    first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+f3291c7 (HEAD -> master) first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "second commit"
+[master 32022b7] second commit
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout -b "issue-fix"
+Switched to a new branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git commit -m "issue-1 fix"
+[issue-fix ee6dae4] issue-1 fix
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+ee6dae4 (HEAD -> issue-fix) issue-1 fix
+32022b7 (master) second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+32022b7 (HEAD -> master) second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+32022b7 (HEAD -> master) second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "3rd"
+[master 5464f8e] 3rd
+ 1 file changed, 1 insertion(+)
+ create mode 100644 issue.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+5464f8e (HEAD -> master) 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git commit -m "issue-2 fix"
+[issue-fix a642237] issue-2 fix
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merge made by the 'ort' strategy.
+ issue.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 issue.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+5464f8e (HEAD -> master) 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch  issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+ff1c6ed (HEAD -> issue-fix) ahhasjashjaserge branch 'master' into issue-fix
+a642237 issue-2 fix
+5464f8e (master) 3rd
+ee6dae4 issue-1 fix
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+5464f8e (HEAD -> master) 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout -b "abc"
+Switched to a new branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git commit -m "abc.js file added!"
+[abc 32f0c7d] abc.js file added!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+32f0c7d (HEAD -> abc) abc.js file added!
+5464f8e (master) 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "abc.txt file added"
+[master 1347762] abc.txt file added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+1347762 (HEAD -> master) abc.txt file added
+5464f8e 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+32f0c7d (HEAD -> abc) abc.js file added!
+5464f8e 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git rebase master
+Successfully rebased and updated refs/heads/abc.
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+d126f4d (HEAD -> abc) abc.js file added!
+1347762 (master) abc.txt file added
+5464f8e 3rd
+32022b7 second commit
+f3291c7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$

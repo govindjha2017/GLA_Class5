@@ -1,0 +1,46 @@
+
+1fd2b2b (HEAD -> master, origin/master) merge conflict solved
+4a07528 temp
+0aa10a8 (abc) first commit in abc
+e7d6758 (issue-fix) issue-1 fix
+918d6d7 3rd commit
+480a79d second commit
+506b5d7 first commit
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   temp.js
+
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "temp"
+[master c5be615] temp
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git reset head~1
+Unstaged changes after reset:
+M       temp.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   temp.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64
