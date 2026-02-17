@@ -1,0 +1,239 @@
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject
+$ git init
+Initialized empty Git repository in C:/Users/Pc/Desktop/newProject/.git/
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "first"
+[master (root-commit) 67eb9f8] first
+ 1 file changed, 2 insertions(+)
+ create mode 100644 index.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "second"
+[master cfd529b] second
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+cfd529b (HEAD -> master) second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch issue-fix
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch
+  issue-fix
+* master
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git commit -m "fix-1"
+[issue-fix fa6dcbf] fix-1
+ 1 file changed, 2 insertions(+)
+ create mode 100644 fix.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+fa6dcbf (HEAD -> issue-fix) fix-1
+cfd529b (master) second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+cfd529b (HEAD -> master) second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "third"
+[master 2811243] third
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2811243 (HEAD -> master) third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git checkout issue-fix
+Switched to branch 'issue-fix'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merge made by the 'ort' strategy.
+ index.js | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2811243 (HEAD -> master) third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch issue-fix
+Switched to branch 'issue-fix'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git log --oneline
+170c024 (HEAD -> issue-fix) Merge branch 'master' into issue-fix
+e30deae fix-2
+2811243 (master) third
+fa6dcbf fix-1
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (issue-fix)
+$ git switch master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log -- oneline
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log -- oneline
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2811243 (HEAD -> master) third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git branch abc
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git commit -m "test-1"
+[abc 291ab98] test-1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.js
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+291ab98 (HEAD -> abc) test-1
+2811243 (master) third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git checkout master
+Switched to branch 'master'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+2811243 (HEAD -> master) third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "fourth"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        abc.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git commit -m "fourth"
+[master fc3b838] fourth
+ 1 file changed, 1 insertion(+)
+ create mode 100644 abc.txt
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git log --oneline
+fc3b838 (HEAD -> master) fourth
+2811243 third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (master)
+$ git switch abc
+Switched to branch 'abc'
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git add .
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git commit -m "test-2"
+[abc c1634a8] test-2
+ 1 file changed, 2 insertions(+)
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+c1634a8 (HEAD -> abc) test-2
+291ab98 test-1
+2811243 third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git rebase master
+Successfully rebased and updated refs/heads/abc.
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$ git log --oneline
+15400a5 (HEAD -> abc) test-2
+d250835 test-1
+fc3b838 (master) fourth
+2811243 third
+cfd529b second
+67eb9f8 first
+
+Pc@DESKTOP-EBM1M22 MINGW64 ~/Desktop/newProject (abc)
+$
