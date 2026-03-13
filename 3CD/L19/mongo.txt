@@ -1,0 +1,213 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\govin>mongosh
+Current Mongosh Log ID: 69b282f98863667b887c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-10T10:40:44.267+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+abc      40.00 KiB
+admin    40.00 KiB
+cc       80.00 KiB
+config  100.00 KiB
+local    72.00 KiB
+sec-CD   80.00 KiB
+test     40.00 KiB
+test> use sec-CD
+switched to db sec-CD
+sec-CD> show collections
+payment
+products
+users
+sec-CD> db.users.drop()
+true
+sec-CD> db.users.insertMany([{name:"deepak", age:20,city:"Dubai"},{name:"harsh",age:25,city:"mumbai"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b2871a8863667b887c2907'),
+    '1': ObjectId('69b2871a8863667b887c2908')
+  }
+}
+sec-CD> db.users.insertMany([{name:"deepak", age:20,city:"Dubai"},{name:"harsh",age:25,city:"mumbai"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b287258863667b887c2909'),
+    '1': ObjectId('69b287258863667b887c290a')
+  }
+}
+sec-CD> db.users.updateOne({name:"deepak"},{$set:{city:"banglore"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+sec-CD> db.users.updateMany({},{$set:{city:"Noida"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:43)
+
+> 1 | db.users.updateMany({},{$set:{city:"Noida"})
+    |                                            ^
+  2 |
+
+sec-CD> db.users.updateMany({},{$set:{city:"Noida"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:43)
+
+> 1 | db.users.updateMany({},{$set:{city:"Noida"})
+    |                                            ^
+  2 |
+
+sec-CD> db.users.updateMany({},{$set:{city:"Noida"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+sec-CD> db.users.updateOne({},{$set:{city:"Delhi"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+sec-CD> db.users.deleteOne({name:"harsh"})
+{ acknowledged: true, deletedCount: 1 }
+sec-CD> db.users.deleteOne({})
+{ acknowledged: true, deletedCount: 1 }
+sec-CD> db.users.deleteMany({})
+{ acknowledged: true, deletedCount: 2 }
+sec-CD> db.users.insertMany([{name:"deepak", age:20,city:"Dubai"},{name:"harsh",age:25,city:"mumbai"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b28de58863667b887c290b'),
+    '1': ObjectId('69b28de58863667b887c290c')
+  }
+}
+sec-CD> db.users.insertMany([{name:"deepak", age:20,city:"Dubai"},{name:"harsh",age:25,city:"mumbai"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b28de78863667b887c290d'),
+    '1': ObjectId('69b28de78863667b887c290e')
+  }
+}
+sec-CD> db.users.insertMany([{name:"deepak", age:20,city:"Dubai"},{name:"harsh",age:25,city:"mumbai"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b28de88863667b887c290f'),
+    '1': ObjectId('69b28de88863667b887c2910')
+  }
+}
+sec-CD> db.users.find({})
+[
+  {
+    _id: ObjectId('69b28de58863667b887c290b'),
+    name: 'deepak',
+    age: 20,
+    city: 'Dubai'
+  },
+  {
+    _id: ObjectId('69b28de58863667b887c290c'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b28de78863667b887c290d'),
+    name: 'deepak',
+    age: 20,
+    city: 'Dubai'
+  },
+  {
+    _id: ObjectId('69b28de78863667b887c290e'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b28de88863667b887c290f'),
+    name: 'deepak',
+    age: 20,
+    city: 'Dubai'
+  },
+  {
+    _id: ObjectId('69b28de88863667b887c2910'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  }
+]
+sec-CD> db.users.find({age:25})
+[
+  {
+    _id: ObjectId('69b28de58863667b887c290c'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b28de78863667b887c290e'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b28de88863667b887c2910'),
+    name: 'harsh',
+    age: 25,
+    city: 'mumbai'
+  }
+]
+sec-CD> db.users.findOne({age:25})
+{
+  _id: ObjectId('69b28de58863667b887c290c'),
+  name: 'harsh',
+  age: 25,
+  city: 'mumbai'
+}
+sec-CD> db.users.updateMany({age:{$gt:22}},{$set:{city:"Kolkata"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+sec-CD> db.users.updateMany({age:{$lt:22}},{$set:{city:"Mathura"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+sec-CD> db.users.rename("customers")
+TypeError: db.users.rename is not a function
+sec-CD> db.users.renameCollection("customers")
+{ ok: 1 }
+sec-CD>
+
+
+
+
+
+
+

@@ -1,0 +1,157 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\govin>mongosh
+Current Mongosh Log ID: 69b3c1ec527f7cfcfa7c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-10T10:40:44.267+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use sec-CC
+switched to db sec-CC
+sec-CC> db.createCollection("users")
+{ ok: 1 }
+sec-CC> db.createCollection("products")
+Uncaught:b.users.insertOne({username:'nitin',password:'nitin@123',age:25,city:'Delhi"})
+SyntaxError: Unterminated string constant. (1:70)
+
+> 1 | db.users.insertOne({username:'nitin',password:'nitin@123',age:25,city:'Delhi"})
+    |                                                                       ^
+  2 |
+
+sec-CC> db.users.insertOne({username:'nitin',password:'nitin@123',age:25,city:'Delhi'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b3c314527f7cfcfa7c2907')
+}
+sec-CC> db.users.insertOne({username:'ajay',password:'ajay@123',age:32,city:'Banglore'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b3c33e527f7cfcfa7c2908')
+}
+sec-CC> db.users.insertMany([{username:"abc",password:"abc@123",age:18,city:"Mumbai"},{username:'def',password:"def@123},{}])
+Uncaught:
+SyntaxError: Unterminated string constant. (1:103)
+
+> 1 | db.users.insertMany([{username:"abc",password:"abc@123",age:18,city:"Mumbai"},{username:'def',password:"def@123},{}])
+    |                                                                                                        ^
+  2 |
+
+sec-CC> db.users.insertMany([{username:"abc",password:"abc@123",age:18,city:"Mumbai"},{username:'def',password:"def@123",age:45,city:"Pune"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b3c4aa527f7cfcfa7c2909'),
+    '1': ObjectId('69b3c4aa527f7cfcfa7c290a')
+  }
+}
+sec-CC> db.users.insertOne({username:'meena',city:'bhopal'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b3c5e0527f7cfcfa7c290b')
+}
+sec-CC> db.users.find({name:"meena"})
+
+sec-CC> db.users.find({username:"meena"})
+[
+  {
+    _id: ObjectId('69b3c5e0527f7cfcfa7c290b'),
+    username: 'meena',
+    city: 'bhopal'
+  }
+]
+sec-CC> db.users.find({})
+[
+  {
+    _id: ObjectId('69b3c314527f7cfcfa7c2907'),
+    username: 'nitin',
+    password: 'nitin@123',
+    age: 25,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('69b3c33e527f7cfcfa7c2908'),
+    username: 'ajay',
+    password: 'ajay@123',
+    age: 32,
+    city: 'Banglore'
+  },
+  {
+    _id: ObjectId('69b3c4aa527f7cfcfa7c2909'),
+    username: 'abc',
+    password: 'abc@123',
+    age: 18,
+    city: 'Mumbai'
+  },
+  {
+    _id: ObjectId('69b3c4aa527f7cfcfa7c290a'),
+    username: 'def',
+    password: 'def@123',
+    age: 45,
+    city: 'Pune'
+  },
+  {
+    _id: ObjectId('69b3c5e0527f7cfcfa7c290b'),
+    username: 'meena',
+    city: 'bhopal'
+  }
+]
+sec-CC> db.users.findOne({})
+{
+  _id: ObjectId('69b3c314527f7cfcfa7c2907'),
+  username: 'nitin',
+  password: 'nitin@123',
+  age: 25,
+  city: 'Delhi'
+}
+sec-CC> db.users.updateOne({username:'ajay'},{$set:{city:'Noida'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+sec-CC> db.users.updateMany({},{$set:{password:'pass'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 5,
+  modifiedCount: 5,
+  upsertedCount: 0
+}
+sec-CC> db.users.deleteOne({username:'ajay'})
+{ acknowledged: true, deletedCount: 1 }
+sec-CC> db.users.find({age:26})
+
+sec-CC> db.users.find({age:{$gt:26}})
+[
+  {
+    _id: ObjectId('69b3c4aa527f7cfcfa7c290a'),
+    username: 'def',
+    password: 'pass',
+    age: 45,
+    city: 'Pune'
+  }
+]
+sec-CC> db.users.deleteMany({})
+{ acknowledged: true, deletedCount: 4 }
+sec-CC> db.users.drop()
+true
+sec-CC>
+
+
+
+
+
+
+
+
+
