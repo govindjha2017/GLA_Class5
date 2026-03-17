@@ -1,0 +1,307 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\govin>mognosh
+'mognosh' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\govin>mongosh
+Current Mongosh Log ID: 69b8dd2619ecac4fe67c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-10T10:40:44.267+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs;
+SEC-CB   64.00 KiB
+SEC-CC   24.00 KiB
+abc      40.00 KiB
+admin    40.00 KiB
+config  100.00 KiB
+hons     24.00 KiB
+local    72.00 KiB
+sec-CD   64.00 KiB
+test     40.00 KiB
+test> show dbs;
+SEC-CC   24.00 KiB
+abc      40.00 KiB
+admin    40.00 KiB
+config  100.00 KiB
+hons     24.00 KiB
+local    72.00 KiB
+sec-CD   64.00 KiB
+test     40.00 KiB
+test> use SEC-CB
+switched to db SEC-CB
+SEC-CB> db.createCollection("users")
+{ ok: 1 }
+SEC-CB> db.users.insertOne({name:"teena",age:21,city:"Delhi"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8de9c19ecac4fe67c2907')
+}
+SEC-CB> db.users.insertOne({name:"meena",age:26,city:"pune"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8dee819ecac4fe67c2908')
+}
+SEC-CB> db.users.insertMany([{name:'abc',age:34,city:'mumbai'},{name:'rahul',age:45,city:"noida"},{name:'ajay',age:34,city:"Banglore"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b8dfcd19ecac4fe67c2909'),
+    '1': ObjectId('69b8dfcd19ecac4fe67c290a'),
+    '2': ObjectId('69b8dfcd19ecac4fe67c290b')
+  }
+}
+SEC-CB> db.users.find({})
+[
+  {
+    _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+    name: 'teena',
+    age: 21,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('69b8dee819ecac4fe67c2908'),
+    name: 'meena',
+    age: 26,
+    city: 'pune'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c2909'),
+    name: 'abc',
+    age: 34,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290a'),
+    name: 'rahul',
+    age: 45,
+    city: 'noida'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290b'),
+    name: 'ajay',
+    age: 34,
+    city: 'Banglore'
+  }
+]
+SEC-CB> db.users.find({name:"teena"})
+[
+  {
+    _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+    name: 'teena',
+    age: 21,
+    city: 'Delhi'
+  }
+]
+SEC-CB> db.users.insertOne({name:'vinay',age:34,city:'delhi'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8e4c919ecac4fe67c290c')
+}
+SEC-CB> db.users.find({city:"Delhi"})
+[
+  {
+    _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+    name: 'teena',
+    age: 21,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('69b8e4c919ecac4fe67c290c'),
+    name: 'vinay',
+    age: 34,
+    city: 'Delhi'
+  }
+]
+SEC-CB> db.users.find({})
+[
+  {
+    _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+    name: 'teena',
+    age: 21,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('69b8dee819ecac4fe67c2908'),
+    name: 'meena',
+    age: 26,
+    city: 'pune'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c2909'),
+    name: 'abc',
+    age: 34,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290a'),
+    name: 'rahul',
+    age: 45,
+    city: 'noida'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290b'),
+    name: 'ajay',
+    age: 34,
+    city: 'Banglore'
+  },
+  {
+    _id: ObjectId('69b8e4c919ecac4fe67c290c'),
+    name: 'vinay',
+    age: 34,
+    city: 'Delhi'
+  }
+]
+SEC-CB> db.users.findOne({})
+{
+  _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+  name: 'teena',
+  age: 21,
+  city: 'Delhi'
+}
+SEC-CB> db.users.findOne({city:"Delhi"\})
+Uncaught:
+SyntaxError: Expecting Unicode escape sequence \uXXXX. (1:31)
+
+> 1 | db.users.findOne({city:"Delhi"\})
+    |                                ^
+  2 |
+
+SEC-CB>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+SEC-CB> db.users.findOne({city:"Delhi"})
+{
+  _id: ObjectId('69b8de9c19ecac4fe67c2907'),
+  name: 'teena',
+  age: 21,
+  city: 'Delhi'
+}
+SEC-CB> db.users.find({age:26})
+[
+  {
+    _id: ObjectId('69b8dee819ecac4fe67c2908'),
+    name: 'meena',
+    age: 26,
+    city: 'pune'
+  }
+]
+SEC-CB> db.users.find({age:{$gt:26}})
+[
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c2909'),
+    name: 'abc',
+    age: 34,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290a'),
+    name: 'rahul',
+    age: 45,
+    city: 'noida'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290b'),
+    name: 'ajay',
+    age: 34,
+    city: 'Banglore'
+  },
+  {
+    _id: ObjectId('69b8e4c919ecac4fe67c290c'),
+    name: 'vinay',
+    age: 34,
+    city: 'Delhi'
+  }
+]
+SEC-CB> db.users.find({age:{$gte:26}})
+[
+  {
+    _id: ObjectId('69b8dee819ecac4fe67c2908'),
+    name: 'meena',
+    age: 26,
+    city: 'pune'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c2909'),
+    name: 'abc',
+    age: 34,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290a'),
+    name: 'rahul',
+    age: 45,
+    city: 'noida'
+  },
+  {
+    _id: ObjectId('69b8dfcd19ecac4fe67c290b'),
+    name: 'ajay',
+    age: 34,
+    city: 'Banglore'
+  },
+  {
+    _id: ObjectId('69b8e4c919ecac4fe67c290c'),
+    name: 'vinay',
+    age: 34,
+    city: 'Delhi'
+  }
+]
+SEC-CB> db.users.find({_id:"69b8dfcd19ecac4fe67c290b"})
+
+SEC-CB> db.users.find({_id:69b8dfcd19ecac4fe67c290b})
+Uncaught:
+SyntaxError: Identifier directly after number. (1:21)
+
+> 1 | db.users.find({_id:69b8dfcd19ecac4fe67c290b})
+    |                      ^
+  2 |
+
+SEC-CB> db.users.find({_id:"69b8dfcd19ecac4fe67c290b"})
+
+SEC-CB> db.users.updateOne({name:"meena"},{$set:{age:28,city:'kolkata'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+SEC-CB> db.users.updateOne({},{$set:{age:65}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+SEC-CB> db.users.updateMany({age:{$lte:40}},{$set:{city:"Noida"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 4,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+SEC-CB> db.users.deleteOne({})
+{ acknowledged: true, deletedCount: 1 }
+SEC-CB> db.users.deleteMany({city:"Noida"})
+{ acknowledged: true, deletedCount: 4 }
+SEC-CB> db.users.delteMany({})
+TypeError: db.users.delteMany is not a function
+SEC-CB> db.users.deleteMany({})
+{ acknowledged: true, deletedCount: 1 }
+SEC-CB> db.createCollection("products")
+{ ok: 1 }
+SEC-CB> db.products.drop()
+true
+SEC-CB> db.users.renameCollection("customers")
+{ ok: 1 }
+SEC-CB>

@@ -1,0 +1,213 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\govin>mongosh
+Current Mongosh Log ID: 69b8d0ed3be9e1f0af7c2906
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.7.0
+Using MongoDB:          8.2.5
+Using Mongosh:          2.7.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-03-10T10:40:44.267+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+SEC-CB   64.00 KiB
+SEC-CC   24.00 KiB
+abc      40.00 KiB
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+sec-CD   64.00 KiB
+test     40.00 KiB
+test> use hons
+switched to db hons
+hons> db.createCollection("users")
+{ ok: 1 }
+hons> db.users.insertOne({name:'rahul',age:24,city:'Delhi'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8d1db3be9e1f0af7c2907')
+}
+hons> db.users.insertOne({name:'ajay',age:31})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8d2413be9e1f0af7c2908')
+}
+hons> db.users.insertOne({username:'teena",password:"teena@123"})
+Uncaught:
+SyntaxError: Unterminated string constant. (1:29)
+
+> 1 | db.users.insertOne({username:'teena",password:"teena@123"})
+    |                              ^
+  2 |
+
+hons> db.users.insertOne({username:"teena",password:"teena@123"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('69b8d27e3be9e1f0af7c2909')
+}
+hons> db.users.insertMany([{name:'abc',age:35,city:'mumbai'},{name:'def',age:45,city:'pune'},{name:'qwer',age:21,city:'pune'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69b8d3523be9e1f0af7c290a'),
+    '1': ObjectId('69b8d3523be9e1f0af7c290b'),
+    '2': ObjectId('69b8d3523be9e1f0af7c290c')
+  }
+}
+hons> db.users.findMany({})
+TypeError: db.users.findMany is not a function
+hons> db.users.find({})
+[
+  {
+    _id: ObjectId('69b8d1db3be9e1f0af7c2907'),
+    name: 'rahul',
+    age: 24,
+    city: 'Delhi'
+  },
+  { _id: ObjectId('69b8d2413be9e1f0af7c2908'), name: 'ajay', age: 31 },
+  {
+    _id: ObjectId('69b8d27e3be9e1f0af7c2909'),
+    username: 'teena',
+    password: 'teena@123'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290a'),
+    name: 'abc',
+    age: 35,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290b'),
+    name: 'def',
+    age: 45,
+    city: 'pune'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290c'),
+    name: 'qwer',
+    age: 21,
+    city: 'pune'
+  }
+]
+hons> db.users.find({name:"teena"})
+
+hons> db.users.find({username:"teena"})
+[
+  {
+    _id: ObjectId('69b8d27e3be9e1f0af7c2909'),
+    username: 'teena',
+    password: 'teena@123'
+  }
+]
+hons> db.users.find({age:31})
+[
+  { _id: ObjectId('69b8d2413be9e1f0af7c2908'), name: 'ajay', age: 31 }
+]
+hons> db.users.find({age:{$gt:25})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:27)
+
+> 1 | db.users.find({age:{$gt:25})
+    |                            ^
+  2 |
+
+hons> db.users.find({age:{$gt:25}})
+[
+  { _id: ObjectId('69b8d2413be9e1f0af7c2908'), name: 'ajay', age: 31 },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290a'),
+    name: 'abc',
+    age: 35,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290b'),
+    name: 'def',
+    age: 45,
+    city: 'pune'
+  }
+]
+hons> db.users.find({})
+[
+  {
+    _id: ObjectId('69b8d1db3be9e1f0af7c2907'),
+    name: 'rahul',
+    age: 24,
+    city: 'Delhi'
+  },
+  { _id: ObjectId('69b8d2413be9e1f0af7c2908'), name: 'ajay', age: 31 },
+  {
+    _id: ObjectId('69b8d27e3be9e1f0af7c2909'),
+    username: 'teena',
+    password: 'teena@123'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290a'),
+    name: 'abc',
+    age: 35,
+    city: 'mumbai'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290b'),
+    name: 'def',
+    age: 45,
+    city: 'pune'
+  },
+  {
+    _id: ObjectId('69b8d3523be9e1f0af7c290c'),
+    name: 'qwer',
+    age: 21,
+    city: 'pune'
+  }
+]
+hons> db.users.findOne({})
+{
+  _id: ObjectId('69b8d1db3be9e1f0af7c2907'),
+  name: 'rahul',
+  age: 24,
+  city: 'Delhi'
+}
+hons> db.users.updateOne({name:"abc"},{$set:{age:40,city:"kolkata"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hons> db.users.updateOne({},{$set:{age:40,city:"kolkata"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hons> db.users.updateMany({},{$set:{city:"kolkata"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 4,
+  upsertedCount: 0
+}
+hons> db.users.deleteOne({})
+{ acknowledged: true, deletedCount: 1 }
+hons> db.users.deleteMany({age:{$gte:30}})
+{ acknowledged: true, deletedCount: 3 }
+hons> db.users.deleteMany({})
+{ acknowledged: true, deletedCount: 2 }
+hons> db.createCollection("products")
+{ ok: 1 }
+hons> db.products.drop()
+true
+hons> db.users.rename("customers")
+TypeError: db.users.rename is not a function
+hons> db.users.renameCollection("customers")
+{ ok: 1 }
+hons>
