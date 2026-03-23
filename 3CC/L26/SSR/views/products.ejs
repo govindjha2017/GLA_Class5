@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <style>
+        .container{
+            gap:20px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex flex-wrap">
+        <%for(let product of products){%>
+            <div class="card" style="width: 18rem;">
+                <img style="height: 200px;" src="<%= product.image %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%=product.name %></h5>
+                    <h5 class="card-title">$<%=product.price %></h5>
+                    <p class="card-text"><%=product.desc %></p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <a href="#" class="btn btn-success">Buy Now</a>
+                    <a href="#" class="btn btn-warning">Edit</a>
+                </div>
+            </div>
+        <%}%>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
