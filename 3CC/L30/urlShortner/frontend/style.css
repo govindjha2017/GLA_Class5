@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    /* border: 2px solid red; */
+    height: 100vh;
+    width: 100vw;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    height: 40vh;
+    width: 40vw;
+    /* border: 2px solid red; */
+    background-color: white;
+}
+
+.input{
+    border: 2px solid red;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#inp{
+    width: 70%;
+}
+
+#btn{
+    width: 20%;
+}
+
+.hidden{
+    display: none;
+}
