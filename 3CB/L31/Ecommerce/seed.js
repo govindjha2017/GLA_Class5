@@ -1,7 +1,7 @@
 const Product = require("./models/products");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/SSR-CB")
+mongoose.connect("mongodb://localhost:27017/Ecom-CB")
     .then(()=>{
         console.log("DB conected")
     })

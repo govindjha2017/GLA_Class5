@@ -3,6 +3,7 @@ const router = express.Router();
 const Product = require("../models/products")
 
 router.get('/products',async (req,res)=>{
+    console.log(req.user)
     const products = await Product.find({})
     res.render("product/index",{products})
 })
