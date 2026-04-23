@@ -1,0 +1,41 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-8">
+            <div class="card">
+               <% for(let cartItem of cartData){ %>
+                <div class="card mb-2">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="<%= cartItem.productId.image %>"style="height:150px">
+                        </div>
+                        <div class="col-8">
+                            <div>
+                                <h5><%= cartItem.productId.name %></h5>
+                                <p><%= cartItem.productId.desc %></p>
+                                <div class="d-flex gap-2">
+                                    <form action="/users/<%= cartItem.productId._id %>/cart/remove" method="post" >
+                                        <button class="btn btn-outline-secondary">-</button>
+                                    </form>
+                                    <span  style="font-size: 1.3em;"><%= cartItem.quantity%></span>
+                                    <form action="/users/<%= cartItem.productId._id %>/cart/add" method="post" >
+                                        <button class="btn btn-outline-secondary">+</button>
+                                    </form>
+                                </div>
+                                <p>$ <%= cartItem.productId.price %></p>
+                             </div>
+                        </div>
+                    </div>                    
+                </div>
+               <% }%>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <h5>Total Price = 00000</h5>
+                <button class="btn btn-primary mt-3">Place order</button>
+            </div>
+        </div>
+    </div>
+</div>

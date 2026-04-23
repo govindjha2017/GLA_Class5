@@ -1,0 +1,49 @@
+<% layout("layout/boilerplate.ejs") -%>
+
+<div class="container mt-4">
+    <%if(cartData.length==0){%>
+        <div class="card" style="height: 50px; width: 200px; margin: auto; font-size: 2em;">
+            Cart empty
+        </div>
+    <%}else{%>
+        <div class="row">
+            <div class="col-8">
+                <%for(let cartItem of cartData){%>
+                    <div class="card mb-2">
+                        <div class="row">
+                            <div class="col-4">
+                                <img class="p-3" src="<%= cartItem.productId.image %>" style="height: 150px; width: 100%;">
+                            </div>
+                            <div class="col-8">
+                                <h5><%= cartItem.productId.name %></h5>
+                                <p class="text-muted"><%= cartItem.productId.desc %></p>
+                                <p>$ <%= cartItem.productId.price %> </p>
+                                <div class="d-flex gap-2">
+                                    <form action="/users/<%= cartItem.productId._id %>/cart/remove" method="post">
+                                        <button class="btn btn-outline-secondary" >-</button>
+                                    </form>
+                                    <span style="font-size: 1.3em;"><%= cartItem.qunatity %></span>
+                                    <form action="/users/<%= cartItem.productId._id %>/cart/additem" method="post">
+                                        <button class="btn btn-outline-secondary" >+</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <span style="font-size: 1.3em;">
+                                        <%= cartItem.productId.price %> * <%=cartItem.qunatity %>  = <%= cartItem.productId.price*cartItem.qunatity %> 
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <h5>Total PRICE = <%=totalPrice %></h5>\
+                    <button class="btn btn-primary">Place order</button>
+                </div>
+            </div>
+        </div>
+    <%}%>
+</div>

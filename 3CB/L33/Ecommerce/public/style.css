@@ -1,0 +1,10 @@
+.signup , .login{
+    width: 50vw;
+    margin: auto;
+}
+
+.container{
+    margin-top: 30px;
+    justify-content: center;
+    gap: 15px 30px;
+}
