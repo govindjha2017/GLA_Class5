@@ -8,3 +8,23 @@ let student =[
 // .Print total marks for students with marks greater than 60 after 20 marks
 //  have been added to those who scored less than 60
 
+let x = student.map((item)=>{
+    if(item.marks<60){
+        item.marks=item.marks+ 20;
+    }
+    return item
+})
+
+let y = x.filter((item)=>{
+    if(item.marks>60){
+        return true;
+    }
+})
+
+let z = y.reduce((acc,item)=>{
+    acc= acc+item.marks;
+    return acc;
+},0)
+
+
+console.log(z);
